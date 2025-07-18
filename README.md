@@ -9,7 +9,7 @@ This project uses a simple and reliable `.next` folder swap method to ensure **z
 
 | Folder Path                          | Purpose                   |
 |--------------------------------------|---------------------------|
-| `/var/www/anand-rathi-web/`          | Live production website   |
+| `/var/www/html/anand-rathi-web/`          | Live production website   |
 | `/var/www/anand-rathi-web-backup/`   | Build & testing workspace |
 
 ---
@@ -47,7 +47,7 @@ mv .next .next-backup-$(date +%Y%m%d%H%M%S)
 Copy new build from backup:
 
 ```bash
-cp -R /var/www/anand-rathi-web-backup/.next /var/www/anand-rathi-web/
+cp -R /var/www/anand-rathi-web-backup/.next /var/www/html/anand-rathi-web/
 ```
 
 ---
@@ -73,8 +73,8 @@ PORT=3000 npm start &
 If something goes wrong:
 
 ```bash
-rm -rf /var/www/anand-rathi-web/.next
-mv /var/www/anand-rathi-web/.next-backup-YYYYMMDDHHMMSS /var/www/anand-rathi-web/.next
+rm -rf /var/www/html/anand-rathi-web/.next
+mv /var/www/html/anand-rathi-web/.next-backup-YYYYMMDDHHMMSS /var/www/html/anand-rathi-web/.next
 pm2 reload anand-rathi-web
 ```
 
