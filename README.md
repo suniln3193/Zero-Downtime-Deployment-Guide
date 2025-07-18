@@ -10,7 +10,7 @@ This project uses a simple and reliable `.next` folder swap method to ensure **z
 | Folder Path                          | Purpose                   |
 |--------------------------------------|---------------------------|
 | `/var/www/html/anand-rathi-web/`          | Live production website   |
-| `/var/www/anand-rathi-web-backup/`   | Build & testing workspace |
+| `/var/www/html/anand-rathi-web-backup/`   | Build & testing workspace |
 
 ---
 
@@ -19,7 +19,7 @@ This project uses a simple and reliable `.next` folder swap method to ensure **z
 ### 1️⃣ Build in Backup Folder
 
 ```bash
-cd /var/www/anand-rathi-web-backup
+cd /var/www/html/anand-rathi-web-backup
 git pull origin main
 
 npm install
@@ -40,14 +40,14 @@ PORT=4000 npm start
 Backup the current live build (optional):
 
 ```bash
-cd /var/www/anand-rathi-web
+cd /var/www/html/anand-rathi-web
 mv .next .next-backup-$(date +%Y%m%d%H%M%S)
 ```
 
 Copy new build from backup:
 
 ```bash
-cp -R /var/www/anand-rathi-web-backup/.next /var/www/html/anand-rathi-web/
+cp -R /var/www/html/anand-rathi-web-backup/.next /var/www/html/anand-rathi-web/
 ```
 
 ---
@@ -62,7 +62,7 @@ If not using PM2:
 
 ```bash
 pkill -f 'next start'
-cd /var/www/anand-rathi-web
+cd /var/www/html/anand-rathi-web
 PORT=3000 npm start &
 ```
 
@@ -85,8 +85,8 @@ pm2 reload anand-rathi-web
 ```bash
 #!/bin/bash
 
-LIVE_FOLDER="/var/www/anand-rathi-web"
-BACKUP_FOLDER="/var/www/anand-rathi-web-backup"
+LIVE_FOLDER="/var/www/html/anand-rathi-web"
+BACKUP_FOLDER="/var/www/html/anand-rathi-web-backup"
 
 # Backup current build
 cd "$LIVE_FOLDER"
